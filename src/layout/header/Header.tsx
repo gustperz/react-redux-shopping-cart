@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 
+import ShoppingCartToggleButton from 'components/ShoppingCartToggleButton';
 import styles from './Header.module.css';
 import SearchInput from './components/SearchInput';
 import UserInfo from './components/UserInfo';
@@ -18,9 +19,11 @@ const Header = () => {
       <div className={styles.actions}>
         {!searchVisible && (
           <button onClick={toggleSearchVisible} className="md:hidden" data-testid="togle-search">
-            <FontAwesomeIcon icon={faSearch} />
+            <FontAwesomeIcon icon={faSearch} size="lg" />
           </button>
         )}
+
+        <ShoppingCartToggleButton />
 
         <UserInfo />
       </div>

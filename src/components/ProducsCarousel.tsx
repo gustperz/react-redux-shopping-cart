@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './ProducsCarousel.module.css';
-import { useGetProductsQuery } from '../productsApi';
+import { useGetProductsQuery } from 'state/productsApi';
 import ProductCard, { PRODUCT_CARD_WIDTH } from './ProductCard';
 
 const ProducsCarousel = () => {

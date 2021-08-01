@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Product } from './types';
+
+import { Product } from 'state/types';
 
 const HOST_URL = 'https://superfuds-assets.s3-sa-east-1.amazonaws.com/';
 

@@ -1,8 +1,10 @@
 import React from 'react';
 
 import styles from './ProductCard.module.css';
-import { Product } from '../types';
+import { Product } from 'state/types';
 import { numberFormat } from 'utils';
+import { useAppDispatch, useAppSelector } from 'state/store';
+import { addProduct, selectProductInShoppingCart } from 'state/shoppingCartSlice';
 
 export const PRODUCT_CARD_WIDTH = 256;
 
@@ -12,6 +14,8 @@ export interface ProductCardProps {
 
 const ProductCard = ({ data }: ProductCardProps) => {
   const { id, image, price_real, net_content, supplier, title, units_sf } = data;
+  const addedToCart = useAppSelector(state => selectProductInShoppingCart(state, id));
+  const dispatch = useAppDispatch();
 
   return (
     <div className={styles.container}>
@@ -36,7 +40,9 @@ const ProductCard = ({ data }: ProductCardProps) => {
           </p>
         </div>
       </div>
-      <button className={styles.purchase}>Agregar al carrito</button>
+      <button className={styles.purchase} onClick={() => dispatch(addProduct(data))}>
+        {addedToCart ? 'Agregado uno mas' : 'Agregar al carrito'}
+      </button>
     </div>
   );
 };

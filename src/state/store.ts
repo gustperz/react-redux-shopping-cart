@@ -1,12 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import counterReducer from 'features/counter/counterSlice';
+import shoppingCartReducer from './shoppingCartSlice';
+import productsApi from './productsApi';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    shoppingCart: shoppingCartReducer,
+    [productsApi.reducerPath]: productsApi.reducer,
   },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(productsApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
