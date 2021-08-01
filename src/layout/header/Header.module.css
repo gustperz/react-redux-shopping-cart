@@ -1,0 +1,20 @@
+.header {
+  @apply px-6 py-1 bg-vivid text-white w-screen inline-flex flex-wrap items-center;
+}
+
+.logo {
+  @apply flex-1 md:flex-none flex items-center h-14 order-1;
+}
+
+.search {
+  @apply w-full md:w-auto md:flex-grow flex items-center justify-center md:px-4 overflow-hidden h-14 md:order-2 order-4;
+  transition: height 0.35s;
+}
+
+.searchHidden {
+  @apply h-0 md:h-14;
+}
+
+.actions {
+  @apply grid grid-flow-col place-items-center gap-6 order-3;
+}
