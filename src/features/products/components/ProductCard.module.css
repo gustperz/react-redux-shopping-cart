@@ -1,0 +1,48 @@
+.container {
+  @apply relative pb-7 flex justify-center transform transition-transform hover:scale-105 ease-in-out;
+}
+
+.card {
+  @apply w-64 bg-white shadow-md rounded-md z-10;
+}
+
+.image {
+  @apply h-48 flex items-center justify-center p-8 mb-4 border-b;
+}
+
+.contentInfo {
+  @apply relative px-4 pb-4;
+}
+
+.productSupplier {
+  @apply text-vivid truncate overflow-hidden;
+}
+
+.productNetContent {
+  @apply float-right font-bold bg-green-500 text-white text-sm rounded-full px-2 p-0.5;
+}
+
+.productName {
+  @apply font-bold text-xl truncate overflow-hidden my-1;
+}
+
+.producPrice {
+  @apply font-bold text-2xl;
+}
+
+.producPrice::first-letter {
+  @apply text-vivid;
+}
+
+.producPrice span {
+  @apply text-gray-500 text-base font-normal;
+}
+
+.purchase {
+  @apply bg-vivid h-6 w-60 text-white font-bold justify-center rounded-b-md items-center p-5;
+  @apply flex absolute bottom-6 z-0 transition-transform;
+}
+
+.container:hover .purchase {
+  @apply transform translate-y-8;
+}
