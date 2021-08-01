@@ -3,7 +3,7 @@
 }
 
 .card {
-  @apply w-64 bg-white shadow-md rounded-md z-10;
+  @apply w-full bg-white shadow-md rounded-md z-10;
 }
 
 .image {
@@ -40,9 +40,9 @@
 
 .purchase {
   @apply bg-vivid h-6 w-60 text-white font-bold justify-center rounded-b-md items-center p-5;
-  @apply flex absolute bottom-6 z-0 transition-transform;
+  @apply flex absolute bottom-6 z-0 transition-transform pointer-events-none;
 }
 
 .container:hover .purchase {
-  @apply transform translate-y-8;
+  @apply transform translate-y-8 pointer-events-auto;
 }

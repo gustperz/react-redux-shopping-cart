@@ -1,0 +1,46 @@
+.container {
+  @apply relative;
+}
+
+.container::before,
+.container::after {
+  @apply absolute w-14 md:w-24 h-full top-0 pointer-events-none z-10;
+  @apply from-white to-transparent;
+  content: '';
+}
+
+.container::before {
+  @apply bg-gradient-to-r;
+}
+
+.container::after {
+  @apply bg-gradient-to-l right-0;
+}
+
+.scrollContent {
+  @apply flex gap-x-10 px-14 md:px-20 py-10 overflow-auto w-full;
+}
+
+.scrollContent::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollButton {
+  @apply h-full flex items-center justify-center w-12 z-20 absolute no-underline text-vivid;
+}
+
+.scrollButtonLeft {
+  @apply scrollButton;
+}
+
+.scrollButtonRight {
+  @apply scrollButton right-0 top-0;
+}
+
+.scrollButton svg {
+  @apply text-2xl md:text-3xl;
+}
+
+.scrollButton button:disabled {
+  @apply text-gray-300;
+}

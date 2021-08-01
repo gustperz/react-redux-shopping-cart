@@ -4,6 +4,8 @@ import styles from './ProductCard.module.css';
 import { Product } from '../types';
 import { numberFormat } from 'utils';
 
+export const PRODUCT_CARD_WIDTH = 256;
+
 export interface ProductCardProps {
   data: Product;
 }
@@ -13,7 +15,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.card}>
+      <div className={styles.card} style={{ width: PRODUCT_CARD_WIDTH }}>
         <div className="">icon</div>
 
         <div className={styles.image}>
