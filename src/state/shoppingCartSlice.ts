@@ -12,7 +12,7 @@ interface ShoppingCartState {
 
 const initialState: ShoppingCartState = {
   items: {},
-  modalVisble: true,
+  modalVisble: false,
 };
 
 export const shoppingCartSlice = createSlice({

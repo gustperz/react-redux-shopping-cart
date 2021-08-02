@@ -1,15 +1,27 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import storage from 'redux-persist/lib/storage/session';
+import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 
 import shoppingCartReducer from './shoppingCartSlice';
 import productsApi from './productsApi';
 
+const shoppingCartPersistReducer = persistReducer(
+  { key: 'root', version: 1, storage },
+  shoppingCartReducer
+);
+
 export const store = configureStore({
   reducer: {
-    shoppingCart: shoppingCartReducer,
+    shoppingCart: shoppingCartPersistReducer,
     [productsApi.reducerPath]: productsApi.reducer,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(productsApi.middleware),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(productsApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
