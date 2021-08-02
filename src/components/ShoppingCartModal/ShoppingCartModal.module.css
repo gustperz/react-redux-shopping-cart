@@ -1,5 +1,5 @@
 .container {
-  @apply h-screen z-40 absolute top-0 right-0 bg-white shadow p-4;
+  @apply h-screen z-40 absolute top-0 right-0 bg-white shadow p-4 flex flex-col;
   @apply w-screen md:max-w-5xl;
   @apply transition duration-300 ease-in-out transform;
 }
@@ -17,5 +17,5 @@
 }
 
 .productsList {
-  @apply grid gap-12;
+  @apply grid gap-12 overflow-x-auto;
 }
