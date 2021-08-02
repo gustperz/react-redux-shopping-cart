@@ -6,11 +6,11 @@ import ShoppingCartModal from 'components/ShoppingCartModal';
 
 function App() {
   return (
-    <>
+    <div className="overflow-x-hidden h-screen relative">
       <Header />
       <ProducsCarousel />
       <ShoppingCartModal />
-    </>
+    </div>
   );
 }
 

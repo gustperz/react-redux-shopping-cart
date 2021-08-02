@@ -7,7 +7,7 @@ import shoppingCartReducer from './shoppingCartSlice';
 import productsApi from './productsApi';
 
 const shoppingCartPersistReducer = persistReducer(
-  { key: 'root', version: 1, storage },
+  { key: 'root', version: 1, storage, whitelist: ['items'] },
   shoppingCartReducer
 );
 
