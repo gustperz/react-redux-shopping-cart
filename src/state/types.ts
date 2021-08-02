@@ -12,5 +12,10 @@ export interface Product {
   category: string;
   subcategory: string;
   net_content: string;
-  sellos: { name: string; image: string; }[];
+  sellos: { name: string; image: string }[];
+}
+
+export interface ShoppingCartProduct {
+  product: Product;
+  quantity: number;
 }
