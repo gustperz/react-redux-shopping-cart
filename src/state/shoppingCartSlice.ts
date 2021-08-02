@@ -3,7 +3,7 @@ import { createSlice, ParametricSelector, PayloadAction, Selector } from '@redux
 import { RootState } from './store';
 import { Product, ShoppingCartProduct } from 'state/types';
 
-interface ShoppingCartState {
+export interface ShoppingCartState {
   items: {
     [id: number]: ShoppingCartProduct;
   };
