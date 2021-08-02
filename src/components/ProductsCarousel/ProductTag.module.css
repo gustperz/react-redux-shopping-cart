@@ -1,0 +1,9 @@
+.tooltip {
+  @apply absolute left-9 bottom-0 px-3 py-1.5 w-28 rounded bg-green-800 shadow-lg mt-1 text-white text-sm font-bold;
+}
+
+.tooltip::before {
+  @apply w-0 h-0 absolute bottom-1.5 -left-4 border-transparent border-8;
+  border-right: 10px solid rgb(6, 95, 70);
+  content: '';
+}

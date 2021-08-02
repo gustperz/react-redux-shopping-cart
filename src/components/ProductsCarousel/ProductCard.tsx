@@ -5,6 +5,7 @@ import { Product } from 'state/types';
 import { numberFormat } from 'utils';
 import { useAppDispatch, useAppSelector } from 'state/store';
 import { addProduct, selectProductAddeToShoppingCart } from 'state/shoppingCartSlice';
+import ProductTag from './ProductTag';
 
 export const PRODUCT_CARD_WIDTH = 256;
 
@@ -13,14 +14,18 @@ export interface ProductCardProps {
 }
 
 const ProductCard = ({ data }: ProductCardProps) => {
-  const { id, image, price_real, net_content, supplier, title, units_sf } = data;
+  const { id, image, price_real, net_content, sellos, supplier, title, units_sf } = data;
   const addedToCart = useAppSelector(state => selectProductAddeToShoppingCart(state, id));
   const dispatch = useAppDispatch();
 
   return (
     <div className={styles.container}>
       <div className={styles.card} style={{ width: PRODUCT_CARD_WIDTH }}>
-        <div className="">icon</div>
+        <div className={styles.productTags}>
+          {sellos.map(item => (
+            <ProductTag {...item} />
+          ))}
+        </div>
 
         <div className={styles.image}>
           <img src={image} alt={`product-${id}`} className="h-full" />
@@ -32,7 +37,9 @@ const ProductCard = ({ data }: ProductCardProps) => {
             <span className={styles.productNetContent}>{net_content}</span>
           </div>
 
-          <p className={styles.productName}>{title}</p>
+          <p className={styles.productName} title={title}>
+            {title}
+          </p>
 
           <p className={styles.producPrice}>
             ${numberFormat.currency(price_real)}

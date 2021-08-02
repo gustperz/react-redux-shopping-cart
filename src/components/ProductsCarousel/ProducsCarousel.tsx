@@ -54,8 +54,10 @@ const ProducsCarousel = () => {
       </div>
 
       <div className={styles.scrollContent} ref={contentRef} onScroll={handleScroll}>
-        {data.map(product => (
-          <ProductCard data={product} key={product.id} />
+        {data.map((product, index) => (
+          <div key={product.id} style={{ zIndex: data.length - index }}>
+            <ProductCard data={product} />
+          </div>
         ))}
       </div>
 

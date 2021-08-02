@@ -46,3 +46,7 @@
 .container:hover .purchase {
   @apply transform translate-y-8 pointer-events-auto;
 }
+
+.productTags {
+  @apply absolute right-2 top-2 flex flex-col gap-2;
+}
